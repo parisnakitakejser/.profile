@@ -25,6 +25,11 @@ kubectl delete namespace monitoring
 '
 
 # ArgoCD
+alias proxy-argocd='
+export POD_NAME=$(kubectl get pods -n argocd -l "app.kubernetes.io/name=argocd-server" -o jsonpath="{.items[0].metadata.name}")
+kubectl -n argocd port-forward $POD_NAME 8080
+'
+
 alias install-argocd='
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
