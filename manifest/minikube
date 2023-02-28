@@ -39,3 +39,21 @@ alias uninstall-argocd='
 kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 kubectl delete namespace argocd
 '
+
+# Milvus
+alias install-milvus='
+helm repo add milvus https://milvus-io.github.io/milvus-helm/
+helm repo update
+kubectl create namespace milvus
+helm install milvus milvus/milvus --set cluster.enabled=false --set etcd.replicaCount=1 --set minio.mode=standalone --set pulsar.enabled=false -n milvus
+'
+
+alias uninstall-milvus='
+helm uninstall milvus -n milvus
+kubectl delete namespace milvus
+'
+
+alias proxy-milvus='
+export POD_NAME=$(kubectl get pods -n milvus -l "app.kubernetes.io/name=milvus,component=standalone" -o jsonpath="{.items[0].metadata.name}")
+kubectl -n milvus port-forward $POD_NAME 19530
+'

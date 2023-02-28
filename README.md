@@ -26,3 +26,6 @@ source ~/.profile
 | proxy-argocd | CD | proxy ArgoCD from localhost => minikube |
 | install-argocd | CD | install ArgoCD into argocd namespace |
 | uninstall-argocd | CD | uninstall argocd resources |
+| proxy-milvus | Database (Vector) | proxy Milvus from localhost => minikube |
+| install-milvus | Database (Vector) | Install Milvus standalone mode in own namespace |
+| uninstall-milvus | Database (Vector) | Uninstall Milvus and remove namespace |
