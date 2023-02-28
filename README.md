@@ -1,5 +1,21 @@
 # .profile
 
+```bash
+nano ~/.profile
+```
+
+source the path to the repo clone main file eg.
+
+```
+source ~/Developer/bash-profile/main.sh
+```
+
+save the file and reload the source fle.
+
+```bash
+source ~/.profile
+```
+
 ## source: minikube
 | CLI   | Group | Description |
 | ----- | ----- | ----------- |
