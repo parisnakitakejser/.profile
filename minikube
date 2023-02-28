@@ -23,3 +23,14 @@ helm uninstall prometheus -n monitoring
 helm uninstall grafana -n monitoring
 kubectl delete namespace monitoring
 '
+
+# ArgoCD
+alias install-argocd='
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+'
+
+alias uninstall-argocd='
+kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+kubectl delete namespace argocd
+'
