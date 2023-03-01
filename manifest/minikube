@@ -61,3 +61,29 @@ alias proxy-milvus='
 export POD_NAME=$(kubectl get pods -n milvus -l "app.kubernetes.io/name=milvus,component=standalone" -o jsonpath="{.items[0].metadata.name}")
 kubectl -n milvus port-forward $POD_NAME 19530
 '
+
+# MongoDB
+alias install-mongodb='
+helm repo add bitnami-mongodb https://charts.bitnami.com/bitnami
+helm repo update
+kubectl create namespace mongodb
+helm install mongodb bitnami-mongodb/mongodb -n mongodb
+'
+
+alias uninstall-mongodb='
+helm uninstall mongodb -n mongodb
+kubectl delete namespace mongodb
+'
+
+alias proxy-mongodb='
+kubectl port-forward --namespace mongodb svc/mongodb 27017:27017
+'
+
+alias get-mongodb-password='
+export MONGODB_ROOT_PASSWORD=$(kubectl get secret --namespace mongodb mongodb -o jsonpath="{.data.mongodb-root-password}" | base64 -d)
+echo $MONGODB_ROOT_PASSWORD
+'
+
+alias helm-doc-mongodb='
+open https://github.com/bitnami/charts/tree/main/bitnami/mongodb
+'

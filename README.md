@@ -30,3 +30,8 @@ source ~/.profile
 | proxy-milvus | Database (Vector) | proxy Milvus from localhost => minikube |
 | install-milvus | Database (Vector) | Install Milvus standalone mode in own namespace |
 | uninstall-milvus | Database (Vector) | Uninstall Milvus and remove namespace |
+| install-mongodb | Database (NoSQL) | Install MongoDB into mongodb namespace |
+| uninstall-mongodb | Database (NoSQL) | Remove MongoDB from your cluster include PVC storage |
+| proxy-mongodb | Database (NoSQL) | proxy MongoDB from localhost => minikube |
+| get-mongodb-password | Database (NoSQL) | Return login for admin user to MongoDB |
+| helm-doc-mongodb | Database (NoSQL) | Open documentation for MongoDB helm chart |
