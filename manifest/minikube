@@ -1,3 +1,24 @@
+# Minikube
+alias minikube-restart='
+minikube stop
+minikube start
+'
+
+alias minikube-reset='
+minikube stop
+minikube delete
+minikube start
+'
+
+alias minikube-reset-with-tools='
+minikube stop
+minikube delete
+minikube start --memory 8192 --cpus 4
+install-monitoring
+install-argocd
+'
+
+
 # Monitoring
 alias proxy-grafana='
 export POD_NAME=$(kubectl get pods --namespace monitoring -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=grafana" -o jsonpath="{.items[0].metadata.name}")
@@ -64,10 +85,10 @@ kubectl -n milvus port-forward $POD_NAME 19530
 
 # MongoDB
 alias install-mongodb='
-helm repo add bitnami-mongodb https://charts.bitnami.com/bitnami
+helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
 kubectl create namespace mongodb
-helm install mongodb bitnami-mongodb/mongodb -n mongodb
+helm install mongodb bitnami/mongodb -n mongodb
 '
 
 alias uninstall-mongodb='

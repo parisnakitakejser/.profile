@@ -19,6 +19,9 @@ source ~/.profile
 ## source: minikube
 | CLI   | Group | Description |
 | ----- | ----- | ----------- |
+| minikube-restart | Kubernetes | Restart your minikube cluster |
+| minikube-reset | Kubernetes | Destory the minikube cluster and start it from fresh again |
+| minikube-reset-with-tools | Kubernetes | Destory the minikube cluster and preinstall tools (Grafana, Prometheus and ArgoCD) with 8GB memory and 4 cpu |
 | proxy-grafana | Monitoring | proxy Grafana from localhost => minikube |
 | proxy-prometheus | Monitoring |proxy Prometheus from localhost => minikube |
 | install-monitoring | Monitoring |install Prometheus and Grafana in monitoring namespace |
