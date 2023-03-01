@@ -30,6 +30,10 @@ export POD_NAME=$(kubectl get pods -n argocd -l "app.kubernetes.io/name=argocd-s
 kubectl -n argocd port-forward $POD_NAME 8080
 '
 
+alias get-argocd-admin-password='
+kubectl get -n argocd secrets/argocd-initial-admin-secret --template="{{.data.password | base64decode}}"
+'
+
 alias install-argocd='
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
