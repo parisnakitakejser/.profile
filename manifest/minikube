@@ -23,17 +23,19 @@ install-argocd
 # Monitoring
 alias proxy-grafana='
 export POD_NAME=$(kubectl get pods --namespace monitoring -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=grafana" -o jsonpath="{.items[0].metadata.name}")
-kubectl --namespace monitoring port-forward $POD_NAME 3000
+kubectl --namespace monitoring port-forward $POD_NAME 3000 &
 '
 
 alias proxy-prometheus='
 export POD_NAME=$(kubectl get pods --namespace monitoring -l "app=prometheus,component=server" -o jsonpath="{.items[0].metadata.name}")
-kubectl --namespace monitoring port-forward $POD_NAME 9090
+kubectl --namespace monitoring port-forward $POD_NAME 9090 &
+
 '
 
 alias proxy-prometheus-pushgateway='
 export POD_NAME=$(kubectl get pods --namespace monitoring -l "app.kubernetes.io/name=prometheus-pushgateway" -o jsonpath="{.items[0].metadata.name}")
-kubectl --namespace monitoring port-forward $POD_NAME 9091
+kubectl --namespace monitoring port-forward $POD_NAME 9091 &
+echo "Prometheus Pushgateway proxy started"
 '
 
 alias install-monitoring='
@@ -54,7 +56,7 @@ kubectl delete namespace monitoring
 # ArgoCD
 alias proxy-argocd='
 export POD_NAME=$(kubectl get pods -n argocd -l "app.kubernetes.io/name=argocd-server" -o jsonpath="{.items[0].metadata.name}")
-kubectl -n argocd port-forward $POD_NAME 8080
+kubectl -n argocd port-forward $POD_NAME 8080 &
 '
 
 alias get-argocd-admin-password='
@@ -86,7 +88,7 @@ kubectl delete namespace milvus
 
 alias proxy-milvus='
 export POD_NAME=$(kubectl get pods -n milvus -l "app.kubernetes.io/name=milvus,component=standalone" -o jsonpath="{.items[0].metadata.name}")
-kubectl -n milvus port-forward $POD_NAME 19530
+kubectl -n milvus port-forward $POD_NAME 19530 &
 '
 
 # MongoDB
@@ -103,7 +105,7 @@ kubectl delete namespace mongodb
 '
 
 alias proxy-mongodb='
-kubectl port-forward --namespace mongodb svc/mongodb 27017:27017
+kubectl port-forward --namespace mongodb svc/mongodb 27017:27017 &
 '
 
 alias get-mongodb-password='
@@ -114,3 +116,6 @@ echo $MONGODB_ROOT_PASSWORD
 alias helm-doc-mongodb='
 open https://github.com/bitnami/charts/tree/main/bitnami/mongodb
 '
+
+alias kill-kube-port-forward='pkill -f "kubectl.*port-forward"'
+alias list-kube-port-forward='ps -ef | grep "kubectl.*port-forward" | grep -v grep'

@@ -19,6 +19,8 @@ source ~/.profile
 ```
 
 ## source: minikube
+Requires you have installed: minikube, kubectl and tmux
+
 | CLI   | Group | Description |
 | ----- | ----- | ----------- |
 | minikube-restart | Kubernetes | Restart your minikube cluster |
@@ -41,3 +43,5 @@ source ~/.profile
 | proxy-mongodb | Database (NoSQL) | proxy MongoDB from localhost => minikube |
 | get-mongodb-password | Database (NoSQL) | Return login for admin user to MongoDB |
 | helm-doc-mongodb | Database (NoSQL) | Open documentation for MongoDB helm chart |
+| kill-kube-port-forward | Util | Kill all active port-forward there are running in the background |
+| list-kube-port-forward | Util | List all port-forward there are running in the background |
