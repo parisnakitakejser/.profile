@@ -1,7 +1,7 @@
 #!/bin/bash
 
-DIR="$(dirname "$0")"
+FULL_PATH_TO_BASE_PROFILE='{path-to-repo-folder}/.profile/manifest/*'
 
-for file in "$DIR/manifest"/*; do
+for file in $FULL_PATH_TO_BASE_PROFILE; do
     source "$file"
 done
