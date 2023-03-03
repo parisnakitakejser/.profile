@@ -19,8 +19,6 @@ source ~/.profile
 ```
 
 ## source: minikube
-Requires you have installed: minikube, kubectl and tmux
-
 | CLI   | Group | Description |
 | ----- | ----- | ----------- |
 | minikube-restart | Kubernetes | Restart your minikube cluster |
