@@ -1,13 +1,15 @@
 # .profile
 
+Open the main.sh and replace the variables with your own first and then open
+
 ```bash
 nano ~/.profile
 ```
 
-source the path to the repo clone main file eg.
+Add source path to the repo clone main.sh file eg.
 
 ```
-source ~/Developer/bash-profile/main.sh
+source ~/{path-to-repo-dir}/.profile/main.sh
 ```
 
 save the file and reload the source fle.
