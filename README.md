@@ -25,7 +25,8 @@ source ~/.profile
 | minikube-reset | Kubernetes | Destory the minikube cluster and start it from fresh again |
 | minikube-reset-with-tools | Kubernetes | Destory the minikube cluster and preinstall tools (Grafana, Prometheus and ArgoCD) with 8GB memory and 4 cpu |
 | proxy-grafana | Monitoring | proxy Grafana from localhost => minikube |
-| proxy-prometheus | Monitoring |proxy Prometheus from localhost => minikube |
+| proxy-prometheus | Monitoring | proxy Prometheus from localhost => minikube |
+| proxy-prometheus-pushgateway | Monitoring | proxy Pushgateway to Prometheus from localhost => minikube |
 | install-monitoring | Monitoring |install Prometheus and Grafana in monitoring namespace |
 | uninstall-monitoring | Monitoring |uninstall monitoring resources |
 | get-argocd-admin-password | CD | Return login password for admin user to ArgoCD |
