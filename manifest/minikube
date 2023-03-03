@@ -35,7 +35,6 @@ kubectl --namespace monitoring port-forward $POD_NAME 9090 &
 alias proxy-prometheus-pushgateway='
 export POD_NAME=$(kubectl get pods --namespace monitoring -l "app.kubernetes.io/name=prometheus-pushgateway" -o jsonpath="{.items[0].metadata.name}")
 kubectl --namespace monitoring port-forward $POD_NAME 9091 &
-echo "Prometheus Pushgateway proxy started"
 '
 
 alias install-monitoring='
